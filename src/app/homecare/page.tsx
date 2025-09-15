@@ -29,7 +29,11 @@ const regularProducts = Array.from({ length: 25 }, (_, i) => ({
 export default function Homecare() {
   const [activeTab, setActiveTab] = useState('baby');
 
-  const ProductCard = ({ product, showCertification = false, showCategory = false }: any) => (
+  const ProductCard = ({ product, showCertification = false, showCategory = false }: {
+    product: { id: number; name: string; description: string; image: string; certifications?: string; category?: string };
+    showCertification?: boolean;
+    showCategory?: boolean;
+  }) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="h-48 bg-gray-200 flex items-center justify-center">
         <span className="text-gray-500">Hình Ảnh Sản Phẩm</span>

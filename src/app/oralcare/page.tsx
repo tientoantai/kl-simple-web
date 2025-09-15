@@ -28,7 +28,11 @@ const adultProducts = Array.from({ length: 20 }, (_, i) => ({
 export default function OralCare() {
   const [activeTab, setActiveTab] = useState('children');
 
-  const ProductCard = ({ product, showAge = false, showDetails = false }: any) => (
+  const ProductCard = ({ product, showAge = false, showDetails = false }: {
+    product: { id: number; name: string; description: string; image: string; ageGroup?: string; details?: string; category?: string; activeIngredient?: string; benefits?: string };
+    showAge?: boolean;
+    showDetails?: boolean;
+  }) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <div className="h-48 bg-gray-200 flex items-center justify-center">
         <span className="text-gray-500">Hình Ảnh Sản Phẩm</span>
